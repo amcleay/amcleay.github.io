@@ -18,102 +18,96 @@
   <meta name="twitter:title" content="Alistair McLeay">
   <meta name="twitter:description" content="Co-Founder & Co-CEO of Grw AI. Building the autonomous AI revenue org in San Francisco.">
   <meta name="twitter:image" content="https://alistairmcleay.com/og.jpg">
-  <meta name="theme-color" content="#FBFBF9" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0F1216" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0A0A0A">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <style>
     :root{
-      --ground:#FBFBF9; --paper:#FFFFFF; --ink:#14171A; --ink-2:#555C66; --ink-3:#8A9099; --text:#343A42;
-      --rule:#E3E5E0; --rule-2:#CDD0CA; --blue:#1F3FE0; --blue-soft:#E8ECFC; --grid:rgba(20,23,26,.07);
+      --ground:#0A0A0A; --ink:#F3F1EC; --text:#BDBAB2; --text-2:#A19E96; --mute:#7C7970;
+      --line:rgba(243,241,236,.10); --line-2:rgba(243,241,236,.22); --acc:#E2B26A;
+      --h-ink:var(--ink); --h-text:var(--text); --h-mute:var(--mute); --h-line:var(--line); --h-line-2:var(--line-2);
       --display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
       --body:"Source Serif 4",Georgia,"Times New Roman",serif;
       --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
     }
-    @media (prefers-color-scheme: dark){ :root{
-      --ground:#0F1216; --paper:#161A20; --ink:#ECEDE8; --ink-2:#A6ACB4; --ink-3:#6F757E; --text:#C3C8CF;
-      --rule:#262B33; --rule-2:#343A44; --blue:#7C93FF; --blue-soft:#1A2140; --grid:rgba(236,237,232,.06);
-    }}
+    body{background:var(--ground);color:var(--text)}
+    .wrap{position:relative;z-index:1}
+    .hero{padding:12vh 0 0}
+    @media (max-width:700px){ .hero{padding:0} }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{
-      margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      background-image:radial-gradient(var(--grid) 1px, transparent 1px);background-size:28px 28px;
-    }
-    a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--blue);text-decoration-thickness:1px;text-underline-offset:4px;transition:color .15s ease}
-    a:hover{color:var(--blue)}
-    a:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:2px}
-    .mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-    .wrap{max-width:860px;margin:0 auto;padding:0 28px}
+    body{margin:0;font-family:var(--body);font-size:19px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;transition:color .15s ease,text-decoration-color .15s ease}
+    a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:2px}
+    .mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase}
+    .wrap{max-width:920px;margin:0 auto;padding:0 32px}
 
-    .hero{padding:11vh 0 4vh;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:40px;align-items:center}
-    .portrait{position:relative;width:340px;height:340px;justify-self:end}
-    .portrait canvas{width:100%;height:100%;display:block}
-    .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:8px;display:none}
-    .portrait.fallback img{display:block}
-    .portrait.fallback canvas{display:none}
-    .hero h1{font-family:var(--display);font-weight:600;font-size:clamp(40px,6vw,68px);line-height:.98;letter-spacing:-.035em;margin:0 0 12px}
-    .hero .role{margin:0;font-size:20px;color:var(--ink-2)}
-    .hero .role a{color:var(--ink-2)}
-    .hero .role a:hover{color:var(--blue)}
-    .hero .meta{margin-top:16px;color:var(--ink-3);display:flex;flex-direction:column;gap:6px;font-variant-numeric:tabular-nums}
-    .hero .meta b{font-weight:500;color:var(--ink);margin-left:6px}
-    .hero .meta em{font-style:normal;color:var(--blue)}
+    .hero{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:24px;align-items:end}
+    .hero h1{font-family:var(--display);font-weight:600;font-size:clamp(44px,6.4vw,74px);line-height:.96;letter-spacing:-.038em;margin:0 0 18px;color:var(--h-ink)}
+    .hero .role{margin:0;font-size:20px;color:var(--h-text)}
+    .hero .role a{color:var(--h-ink);text-decoration-color:var(--h-line-2)}
+    .hero .role a:hover{color:var(--acc);text-decoration-color:var(--acc)}
+    .hero .role.forbes{margin-top:5px;font-size:17px}
+    .hero .role.forbes a{color:var(--h-text);text-decoration-color:var(--h-line)}
+    .hero .role.forbes a:hover{color:var(--acc);text-decoration-color:var(--acc)}
+    .hero .meta{margin-top:22px;color:var(--h-mute);display:flex;flex-direction:column;gap:7px;font-variant-numeric:tabular-nums}
+    .hero .meta b{font-weight:500;color:var(--h-ink);margin-left:6px}
+    .hero .meta em{font-style:normal;color:var(--acc)}
 
-    .bio{max-width:600px;padding:2vh 0 12vh}
+    .portrait{position:relative;width:560px;height:560px;justify-self:end;margin:-30px -100px -96px 0;pointer-events:none}
+    .portrait img{width:100%;height:100%;display:block}
+
+    .bio{max-width:620px;padding:6vh 0 14vh}
     .bio p{margin:0 0 1.15em;color:var(--text)}
     .bio p:last-child{margin-bottom:0}
-    .bio .lede{font-size:24px;line-height:1.42;color:var(--ink);font-weight:500;letter-spacing:-.005em;margin-bottom:0}
-    .bio a{color:var(--ink)}
-    .cta{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0 46px}
-    .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:500;font-size:14.5px;letter-spacing:.002em;line-height:1;padding:12px 16px;border-radius:7px;border:1px solid var(--rule-2);background:var(--paper);color:var(--ink);text-decoration:none;transition:background .15s ease,color .15s ease,border-color .15s ease}
+    .bio .lede{font-size:26px;line-height:1.38;color:var(--ink);font-weight:500;letter-spacing:-.008em;margin-bottom:0}
+    .bio a{color:var(--ink);text-decoration-color:var(--line-2)}
+    .bio a:hover{color:var(--acc);text-decoration-color:var(--acc)}
+    .bio .sub{margin-top:16px;color:var(--text-2);font-size:17.5px;line-height:1.55}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:30px 0 56px}
+    .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:500;font-size:14.5px;line-height:1;padding:12px 16px;border-radius:8px;border:1px solid var(--line-2);background:transparent;color:var(--ink);text-decoration:none;transition:background .15s ease,color .15s ease,border-color .15s ease}
     .btn svg{width:14px;height:14px;fill:currentColor;flex:none}
-    .btn:hover{border-color:var(--blue);color:var(--blue)}
+    .btn:hover{border-color:var(--ink);color:var(--ink)}
     .btn.primary{background:var(--ink);border-color:var(--ink);color:var(--ground)}
-    .btn.primary:hover{background:var(--blue);border-color:var(--blue);color:#fff}
-    .bio .h{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink);margin-right:.35em}
-    .bio .fact{margin-bottom:1.35em}
-    .bio .sub{margin-top:14px;color:var(--ink-2);font-size:17px;line-height:1.55}
-    .bio .fact a:after{content:"\2197";color:var(--blue);font-family:var(--mono);font-size:.7em;margin-left:.15em;vertical-align:.25em;text-decoration:none;display:inline-block}
+    .btn.primary:hover{background:var(--acc);border-color:var(--acc);color:#0B0B0B}
+    .bio .fact{margin-bottom:1.3em}
+    .bio .fact a:after{content:"\2197";color:var(--acc);font-family:var(--mono);font-size:.68em;margin-left:.15em;vertical-align:.28em;text-decoration:none;display:inline-block}
 
-
-    /* entrance */
-    .in{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
-    .in:nth-child(2){animation-delay:.05s}.in:nth-child(3){animation-delay:.1s}.in:nth-child(4){animation-delay:.15s}
-    .in:nth-child(5){animation-delay:.2s}.in:nth-child(6){animation-delay:.25s}.in:nth-child(7){animation-delay:.3s}
-    @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .in{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+    .in:nth-child(2){animation-delay:.08s}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
     @media (prefers-reduced-motion: reduce){ .in{animation:none} html{scroll-behavior:auto} a{transition:none} }
 
-    @media (max-width:640px){
-      .wrap{padding:0 20px}
-      .hero{grid-template-columns:1fr;gap:8px;padding:6vh 0 4vh}
-      .portrait{width:260px;height:260px;justify-self:start;margin-left:-14px;order:-1}
-      .bio{padding:1vh 0 4vh}
-      .bio .lede{font-size:21px}
+    @media (max-width:700px){
+      .wrap{padding:0 22px}
+      .hero{grid-template-columns:1fr;gap:0;align-items:start}
+      .portrait{order:-1;width:calc(100% + 64px);height:auto;aspect-ratio:1/1;margin:-24px -32px -78px;justify-self:stretch}
+      .hero h1{font-size:44px;margin-bottom:12px}
+      .bio{padding:4vh 0 8vh}
+      .bio .lede{font-size:22px}
+      .cta{gap:8px}
+      .btn .long{display:none}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-
     <section class="hero in">
-      <div>
+      <div class="id">
         <h1>Alistair McLeay</h1>
         <p class="role">Co-Founder &amp; Co-CEO, <a href="https://www.grw.ai/" target="_blank" rel="noopener noreferrer">Grw&nbsp;AI</a></p>
+        <p class="role forbes"><a href="https://www.forbes.com/profile/grw-ai/" target="_blank" rel="noopener noreferrer">Forbes 30 Under 30</a></p>
         <div class="meta mono">
           <span>Lives in San Francisco <b id="clock-sf">--:--</b></span>
           <span>From New Zealand <b id="clock-nz">--:--</b> <em id="clock-nz-day"></em></span>
         </div>
       </div>
-      <div class="portrait" id="portrait" aria-label="Portrait of Alistair McLeay drawn as a field of dots" role="img">
-        <canvas id="dots"></canvas>
-        <img src="headshot.jpg" alt="Alistair McLeay" width="340" height="340">
-      </div>
+      <div class="portrait"><picture><source srcset="portrait.webp" type="image/webp"><img src="portrait.png" alt="Alistair McLeay" width="1100" height="1100"></picture></div>
     </section>
 
     <main class="bio in">
@@ -121,16 +115,20 @@
       <p class="sub">I post about what it actually looks like to be on the frontier of AI engineering, building agents that serve Fortune 500 companies today, and the endless struggle of entrepreneuring.</p>
       <div class="cta">
         <a class="btn primary" href="https://x.com/alistairmcleay" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>Follow on X</span></a>
-        <a class="btn" href="https://linkedin.com/in/alistairmcleay" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>Connect on LinkedIn</span></a>
+        <a class="btn" href="https://linkedin.com/in/alistairmcleay" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span><span class="long">Connect on </span>LinkedIn</span></a>
       </div>
 
       <p class="fact">I grew up in New Zealand and started my first software company in high school. I sold it at 19, which changed my life and got me addicted to company-building.</p>
 
-      <p class="fact">My second company, RewardChain, was a founding member of the Factom blockchain, a data-integrity protocol used by the US government and the Gates Foundation. I grew it into a profitable 7&#8209;figure ARR business in its first year.</p>
+      <p class="fact">My second company, RewardChain, was a founding member of Factom, a data-integrity protocol used by the US government and the Gates Foundation. I grew it into a profitable 7&#8209;figure ARR business in its first year.</p>
 
-      <p class="fact">Along the way I did a degree in Applied Physics and Computer Science, traded crypto professionally for a while, and used it to pay for a Masters in Machine Learning at Cambridge in the UK. I spent the Masters <a href="https://www.mlmi.eng.cam.ac.uk/files/2021-2022_dissertations/joint_learning_of_practical_dialogue_systems_and_user_simulators_reduced.pdf" target="_blank" rel="noopener noreferrer">training LLM agents through self&#8209;play</a> with GPT&#8209;2, back when AI was far less cool. I still love physics.</p>
+      <p class="fact">Along the way I did a degree in Applied Physics and Computer Science, spent time all over India as a Prime Minister's Scholar, became a professional trader for a while, and returned 19x on my principal in one year.</p>
 
-      <p class="fact">Now I'm onto my third company, applying everything I've learnt so far to building <a href="https://www.grw.ai/" target="_blank" rel="noopener noreferrer">Grw&nbsp;AI</a> into the leading AI platform for revenue teams.</p>
+      <p class="fact">I then moved to the UK to do a Masters in Machine Learning and Machine Intelligence at Cambridge, where I <a href="https://www.mlmi.eng.cam.ac.uk/files/2021-2022_dissertations/joint_learning_of_practical_dialogue_systems_and_user_simulators_reduced.pdf" target="_blank" rel="noopener noreferrer">trained LLM agents through self&#8209;play</a> with GPT&#8209;2, back when AI was a lot less cool.</p>
+
+      <p class="fact">Now I'm onto company #3, applying everything I've learnt so far to building <a href="https://www.grw.ai/" target="_blank" rel="noopener noreferrer">Grw&nbsp;AI</a> into the top AI platform for revenue teams globally.</p>
+
+      <p class="fact">We have Fortune 500 customers, and have raised $6M from top-tier investors including NextView Ventures, Precursor Ventures, and industry leaders like Shari Levitin and Anna Mowbray.</p>
 
       <p class="fact">On the side I build things for fun. Like this free photorealistic flight simulator that lets you fly anywhere on Earth over real 3D tiles, which went viral, with <a href="https://x.com/alistairmcleay/status/2019562638498537723" target="_blank" rel="noopener noreferrer">millions of views on X</a>.</p>
 
@@ -141,8 +139,9 @@
       <p class="fact">I love to travel and have been to around 40 countries, and my wife Gabi and I vlogged some of it on the channel <a href="https://www.youtube.com/@globalkiwis" target="_blank" rel="noopener noreferrer">Global Kiwis</a>.</p>
 
       <p class="fact">Sometimes I write, like this post on <a href="https://alistairmcleay.substack.com/p/29-lessons-from-29-years" target="_blank" rel="noopener noreferrer">29 lessons from 29 years</a>.</p>
-    </main>
 
+      <p class="fact">I've also started doing podcasts, like <a href="https://www.youtube.com/watch?v=Ijxz0hjErws" target="_blank" rel="noopener noreferrer">Startup Theatre</a> and <a href="https://www.youtube.com/watch?v=yP0y6QFXOq0" target="_blank" rel="noopener noreferrer">Token Consumption</a>.</p>
+    </main>
   </div>
 
   <script>
@@ -158,70 +157,6 @@
         }catch(e){ sf.parentNode.parentNode.style.display='none'; }
       }
       tick(); setInterval(tick,30000);
-    })();
-
-    // Dot-matrix portrait: the page grid, sampled from the headshot.
-    (function(){
-      var box=document.getElementById('portrait'), canvas=document.getElementById('dots');
-      var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var img=new Image(); img.src='headshot.jpg';
-      var ctx, W, H, dpr, N=68, cells=[], t0=0, activeUntil=0, mx=-1e4, my=-1e4, raf=0;
-      function ink(){ return getComputedStyle(document.documentElement).getPropertyValue('--ink').trim(); }
-      function blue(){ return getComputedStyle(document.documentElement).getPropertyValue('--blue').trim(); }
-      function sample(){
-        var off=document.createElement('canvas'); off.width=N; off.height=N;
-        var oc=off.getContext('2d'); var sw=img.naturalWidth*0.74, sh=img.naturalHeight*0.74; oc.drawImage(img,img.naturalWidth*0.13,img.naturalHeight*0.05,sw,sh,0,0,N,N);
-        var d; try{ d=oc.getImageData(0,0,N,N).data; }catch(e){ return false; }
-        cells=[];
-        for(var y=0;y<N;y++) for(var x=0;x<N;x++){
-          var i=(y*N+x)*4, l=(0.2126*d[i]+0.7152*d[i+1]+0.0722*d[i+2])/255;
-          var cx=(x+0.5)/N, cy=(y+0.5)/N;
-          var rd=Math.hypot((cx-0.5)/0.50,(cy-0.47)/0.56), mask=Math.max(0,Math.min(1,(1-rd)/0.18));
-          var v=Math.pow(Math.max(0,(l-0.10)/0.90),1.3)*mask;
-          if(v<0.06) continue;
-          cells.push({u:cx,v:cy,s:v,dx:0,dy:0,d:Math.hypot(cx-0.5,cy-0.42)});
-        }
-        return true;
-      }
-      function size(){
-        dpr=Math.min(2,devicePixelRatio||1); var r=box.getBoundingClientRect();
-        W=Math.round(r.width*dpr); H=Math.round(r.height*dpr); canvas.width=W; canvas.height=H;
-      }
-      function draw(now){
-        var col=ink(), acc=blue(), cell=W/N, rmax=cell*0.68;
-        var p=reduced?1:Math.min(1,(now-t0)/1100);
-        ctx.clearRect(0,0,W,H);
-        var hot=mx>-1e3;
-        for(var i=0;i<cells.length;i++){
-          var c=cells[i];
-          var e=reduced?1:Math.max(0,Math.min(1,(p*1.6-c.d*1.3)/0.5));
-          if(e<=0) continue;
-          var x=c.u*W, y=c.v*H;
-          if(hot){
-            var ddx=x-mx, ddy=y-my, dist=Math.hypot(ddx,ddy), R=cell*7;
-            if(dist<R){ var f=(1-dist/R); f=f*f*cell*2.2; c.dx+= (ddx/(dist||1))*f - c.dx*0.35; c.dy+=(ddy/(dist||1))*f - c.dy*0.35; }
-          }
-          c.dx*=0.86; c.dy*=0.86;
-          var rr=rmax*c.s*e, k=Math.min(1,Math.hypot(c.dx,c.dy)/(cell*1.2));
-          ctx.fillStyle = k>0.15 ? acc : col;
-          ctx.globalAlpha = 0.55+0.45*c.s;
-          ctx.beginPath(); ctx.arc(x+c.dx,y+c.dy,rr,0,Math.PI*2); ctx.fill();
-        }
-        ctx.globalAlpha=1;
-        var moving = hot && cells.some(function(c){ return Math.abs(c.dx)+Math.abs(c.dy)>0.15; });
-        if(p<1 || now<activeUntil || moving) raf=requestAnimationFrame(draw); else raf=0;
-      }
-      function wake(){ activeUntil=performance.now()+400; if(!raf) raf=requestAnimationFrame(draw); }
-      img.onload=function(){
-        ctx=canvas.getContext('2d'); size();
-        if(!sample()){ box.classList.add('fallback'); return; }
-        t0=performance.now(); raf=requestAnimationFrame(draw);
-        box.addEventListener('pointermove',function(ev){ var r=box.getBoundingClientRect(); mx=(ev.clientX-r.left)*dpr; my=(ev.clientY-r.top)*dpr; wake(); });
-        box.addEventListener('pointerleave',function(){ mx=-1e4; my=-1e4; wake(); });
-        addEventListener('resize',function(){ size(); wake(); });
-        matchMedia('(prefers-color-scheme: dark)').addEventListener('change',wake);
-      };
-      img.onerror=function(){ box.classList.add('fallback'); };
     })();
   </script>
 </body>
